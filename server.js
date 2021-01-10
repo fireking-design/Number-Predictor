@@ -1,23 +1,11 @@
-import express from 'express'
-const app = express()
-import { execSync } from 'child_process';
-import path from 'path'
+const express = require('express');
+const path = require('path');
 
-app.use(bodyParser.json())
+const app = express();
+app.use(express.static(__dirname +'/client/'));
 
-app.get('/', (_, res) => res.sendFile(path.join(__dirname, 'README.md')))
-
-app.post('/deploy', (request, response) => {
-    if (request.query.secret !== process.env.SECRET) return response.status(401).send('Wrong secret');
-  
-    if (request.body.ref !== 'refs/heads/glitch') return response.status(200).send('Push was not to glitch branch, so did not deploy.');
-  
-    const repoUrl = request.body.repository.git_url
-
-    console.log('Fetching latest changes.')
-    const output = execSync(`git checkout -- ./ && git pull -X theirs ${repoUrl} glitch && refresh`).toString();
-    console.log(output)
-    return response.status(200).send()
+app.get("/api/:yes", (req, res) => {
+    res.json([req.params.yes]);
 })
 
-app.listen(process.env.PORT, () => console.log(`Your app is listening on port ${process.env.PORT}`));
+app.listen(process.env.PORT || 3001, console.log(`Server listening on port ${process.env.PORT || 3001}`))
