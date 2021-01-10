@@ -4,6 +4,8 @@
   "description": "Digit classifier from scratch",
   "main": "index.js",
   "scripts": {
+    "start": "node server.js",
+    "install:dev": "npm install && cd client && npm install && cd ..",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
@@ -12,5 +14,9 @@
     "MNIST"
   ],
   "author": "Brook Smith",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.17.1",
+    "mathjs": "^8.1.1"
+  }
 }
