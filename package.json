@@ -1,22 +1,33 @@
 {
-  "name": "number-predictor",
-  "version": "1.0.0",
-  "description": "Digit classifier from scratch",
-  "main": "index.js",
-  "scripts": {
-    "start": "node server.js",
-    "install:dev": "npm install && cd client && npm install && cd ..",
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "keywords": [
-    "neural-network",
-    "MLP",
-    "MNIST"
-  ],
-  "author": "Brook Smith",
-  "license": "MIT",
-  "dependencies": {
-    "express": "^4.17.1",
-    "mathjs": "^8.1.1"
-  }
+    "name": "number-predictor",
+    "version": "1.0.0",
+    "description": "Digit classifier from scratch",
+    "main": "index.js",
+    "scripts": {
+        "start": "node server.js",
+        "nn:train:basic": "node neural-network-basic.js",
+        "nn:train:matrix": "node neural-network-matrix.js",
+        "nn:train:medium": "node neural-network-medium.js",
+        "nn:prepare:test": "node prepare-test-data.js",
+        "nn:prepare:train": "node prepare-train-data.js",
+        "nn:prepare:validate": "node prepare-validate-data.js",
+		"nn:augment:all:all": "node augment-data.js -s train -t translate && node augment-data.js -s validate -t translate && node augment-data.js -s test -t translate && node augment-data.js -s train -t rotate && node augment-data.js -s validate -t rotate && node augment-data.js -s test -t rotate && node augment-data.js -s train -t elastic && node augment-data.js -s validate -t elastic && node augment-data.js -s test -t elastic && node augment-data.js -s train -t skew && node augment-data.js -s validate -t skew && node augment-data.js -s test -t skew",
+		"nn:augment:all:translate": "node augment-data.js -s train -t translate && node augment-data.js -s validate -t translate && node augment-data.js -s test -t translate",
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "keywords": [
+        "neural-network",
+        "MLP",
+        "MNIST"
+    ],
+    "author": "Brook Smith",
+    "license": "MIT",
+    "dependencies": {
+        "express": "^4.17.1",
+        "mathjs": "^8.1.1",
+        "yargs": "^16.2.0"
+    },
+    "devDependencies": {
+        "@types/yargs": "^15.0.12"
+    }
 }
