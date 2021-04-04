@@ -11,8 +11,8 @@
         "nn:prepare:test": "node prepare-test-data.js",
         "nn:prepare:train": "node prepare-train-data.js",
         "nn:prepare:validate": "node prepare-validate-data.js",
-		"nn:augment:all:all": "node augment-data.js -s train -t translate && node augment-data.js -s validate -t translate && node augment-data.js -s test -t translate && node augment-data.js -s train -t rotate && node augment-data.js -s validate -t rotate && node augment-data.js -s test -t rotate && node augment-data.js -s train -t elastic && node augment-data.js -s validate -t elastic && node augment-data.js -s test -t elastic && node augment-data.js -s train -t skew && node augment-data.js -s validate -t skew && node augment-data.js -s test -t skew",
-		"nn:augment:all:translate": "node augment-data.js -s train -t translate && node augment-data.js -s validate -t translate && node augment-data.js -s test -t translate",
+        "nn:augment:all:all": "node augment-data.js -s train -t translate && node augment-data.js -s validate -t translate && node augment-data.js -s test -t translate && node augment-data.js -s train -t rotate && node augment-data.js -s validate -t rotate && node augment-data.js -s test -t rotate && node augment-data.js -s train -t elastic && node augment-data.js -s validate -t elastic && node augment-data.js -s test -t elastic && node augment-data.js -s train -t skew && node augment-data.js -s validate -t skew && node augment-data.js -s test -t skew",
+        "nn:augment:all:translate": "node augment-data.js -s train -t translate && node augment-data.js -s validate -t translate && node augment-data.js -s test -t translate",
         "test": "echo \"Error: no test specified\" && exit 1"
     },
     "keywords": [
